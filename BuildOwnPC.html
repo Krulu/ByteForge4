@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Build Your Own PC</title>
+  <link rel="stylesheet" href="pcbuild.css" />
+  <link rel="shortcut icon" type="x-icon" href="image/logoo.png">
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="image/logoo.png" alt="Logo" class="logo" />
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="graphics-card.html">Graphics Cards</a></li>
+        <li><a href="monitors.html">Monitors</a></li>
+        <li><a href="peripirals.html">Peripirals</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <h1>Build Your Own PC</h1>
+
+  <!-- Product Grid -->
+  <div class="grid">
+    <div class="item" onclick="selectPart(this, 'CPU', 'AMD RX 6500 XT, 4GB GDDR6, 2.6 GHz', 350)">
+      <img src="image/Rx6500Xt.png" alt="CPU" />
+      <p>CPU</p>
+    </div>
+
+    <div class="item" onclick="selectPart(this, 'Monitor', 'ASUS 24\' Full HD IPS, 75Hz', 200)">
+      <img src="image/Asus.jpg" alt="Monitor" />
+      <p>Monitor</p>
+    </div>
+
+    <div class="item" onclick="selectPart(this, 'Peripherals', 'AULA F755 Mechanical Keyboard', 100)">
+      <img src="image/AulaF755.webp" alt="Peripherals" />
+      <p>Peripherals</p>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary">
+    <h2>Your Build</h2>
+    <ul id="build-list"></ul>
+    <h3 id="total">Total: $0</h3>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const build = {};
+    let totalPrice = 0;
+
+    function selectPart(element, partType, specs, price) {
+      const list = document.getElementById('build-list');
+
+      if (build[partType]) {
+        element.classList.remove('selected');
+        delete build[partType];
+        totalPrice -= price;
+
+        const listItems = document.querySelectorAll('#build-list li');
+        listItems.forEach((li) => {
+          if (li.dataset.part === partType) {
+            li.remove();
+          }
+        });
+      } else {
+        element.classList.add('selected');
+        build[partType] = { specs, price };
+        totalPrice += price;
+
+        const li = document.createElement('li');
+        li.dataset.part = partType;
+        li.textContent = `${partType}: ${specs} - $${price}`;
+        list.appendChild(li);
+      }
+
+      document.getElementById('total').textContent = `Total: $${totalPrice}`;
+    }
+
+    // Save build to localStorage before navigating away
+    window.addEventListener('beforeunload', () => {
+      const buildArray = Object.entries(build).map(([type, data]) => ({
+        name: `${type}: ${data.specs}`,
+        price: data.price
+      }));
+      localStorage.setItem('cart', JSON.stringify(buildArray));
+    });
+  </script>
+</body>
+</html>

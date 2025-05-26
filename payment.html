@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+    <link rel="stylesheet" href="payment_style.css">
+    <link rel="shortcut icon" type="x-icon" href="image/logoo.png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="image/logoo.png" alt="Logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="graphics-card.html">Graphics Cards</a></li>
+                <li><a href="monitors.html">Monitors</a></li>
+                <li><a href="peripirals.html">Accesories</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <h1>Payment</h1>
+        <div class="payment-summary">
+            <h2>Order Summary</h2>
+            <div class="order-items"></div>
+            <div class="total-price">
+                <h3>Total: $<span id="total-amount">0.00</span> USD</h3>
+            </div>
+        </div>
+        <div class="payment-form">
+            <h2>Payment Information</h2>
+            <form id="payment-form">
+                <label for="name">Name on Card</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" name="card-number" required>
+                
+                <label for="expiration-date">Expiration Date</label>
+                <input type="text" id="expiration-date" name="expiration-date" placeholder="MM/YY" required>
+                
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" required>
+                
+                <button type="submit" class="checkout-button">Submit Payment</button>
+            </form>
+        </div>
+    </main>
+
+ <script>
+    function renderOrderItems() {
+        const orderItemsContainer = document.querySelector('.order-items');
+        const totalAmountElement = document.getElementById('total-amount');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let totalAmount = 0;
+
+        cart.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('order-item');
+            itemElement.innerHTML = `<p>${item.name}</p><p>$${item.price.toFixed(2)} USD</p>`;
+            orderItemsContainer.appendChild(itemElement);
+            totalAmount += item.price;
+        });
+
+        totalAmountElement.textContent = totalAmount.toFixed(2);
+    }
+
+    document.addEventListener('DOMContentLoaded', renderOrderItems);
+</script>
+
+</body>
+</html>

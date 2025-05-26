@@ -1,0 +1,260 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+body{
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header and Nav */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #ffffff;
+    padding: 0px;
+    background-image: linear-gradient(rgba(4,9,30,0.5), rgba(4,9,30,0.5)), url(image/setup.jpg);
+    z-index: 1000;
+   
+}
+
+.logo-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    height: 50px;
+    margin-top: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    font-size: 16px;
+    margin-right: -50px;
+    
+    
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.4s ease;
+    position: relative;
+}
+
+.nav-links li a::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transition: transform 0.3 ease;
+}
+
+.nav-links li a:hover {
+    color: #ffffff;
+}
+
+.nav-links li a:hover::after{
+    transform: scaleX(1);
+}
+
+
+
+/* Main content */
+
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    margin-top: 110px;
+    
+    
+}
+
+.pc-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 40px;
+align-items: stretch;
+
+display: cover;
+flex-direction: column;
+height: 100%;
+}
+
+
+.low-end {
+background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  
+  /* Fixed size properties */
+  width: 100%; /* Takes full width of grid column */
+  min-height: 420px; /* Minimum height */
+  height: 420px; /* Fixed height */
+  
+  /* Flex layout for internal spacing */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  /* Prevent content from overflowing */
+  overflow: hidden;
+}
+
+
+.low-end:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease-in-out;
+}
+
+
+.low-end img {
+width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+
+.low-end h3 {
+font-size: 1.25rem;
+  margin: 10px 0 5px;
+  font-weight: 600;
+  min-height: 48px; /* Fixed height for title */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.low-end p {
+font-size: 1rem;
+color: #0077cc;
+font-weight: bold;
+margin: 10px 0;
+}
+
+
+
+.add-to-cart {
+margin-top: auto;
+padding: 12px 20px; 
+background-color: #0077cc; 
+color: #fff; 
+border: none; 
+border-radius: 30px; 
+font-size: 1rem; 
+font-weight: 600; 
+cursor: pointer; 
+transition: background-color 0.3s ease, transform 0.2s ease; 
+box-shadow: 0 4px 12px rgba(0, 119, 204, 0.4); 
+margin-top: auto;
+}
+
+
+.add-to-cart:hover {
+  background-color: #005fa3;
+  transform: scale(1.05); 
+}
+
+.add-to-cart:focus {
+  outline: 2px solid #005fa3; 
+  outline-offset: 2px; 
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .logo-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 10px 0 0 0;
+    padding-left: 0;
+    margin-right: 0; /* ✅ Remove negative margin */
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links li a {
+    font-size: 1rem;
+    display: block;
+    padding: 8px 0;
+    width: 100%;
+  }
+
+  main {
+    margin-top: 100px;
+    padding: 0 10px;
+  }
+
+  .pc-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .low-end h3 {
+    font-size: 1.1rem;
+    min-height: auto;
+  }
+
+  .low-end p {
+    font-size: 0.95rem;
+  }
+
+  .add-to-cart {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+    margin-top: 10px;
+  }
+}
+  
+

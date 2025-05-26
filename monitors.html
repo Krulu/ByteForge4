@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accessories</title>
+    <link rel="stylesheet" href="peripirals.css">
+    <link rel="shortcut icon" type="x-icon" href="image/logoo.png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="image/logoo.png" alt="Logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="cart.html">Home</a></li>
+                <li><a href="graphics-card.html">Graphics Cards</a></li>
+                <li><a href="monitors.html">Monitors</a></li>
+                <li><a href="peripirals.html">Peripirals</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="BuildOwnPC.html">Build Your PC</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <h1>MONITORS</h1>
+        <div class="product-grid">
+            <div class="product-accessories">
+                <img src="image/Huawei.jpg" alt="monitor 1">
+                <h3>HUAWEI</h3>
+                <p>$54.99 USD</p>
+                <button class="add-to-cart" data-product-name="HUAWEI" data-product-price="54.99">Add to Cart</button>
+            </div>
+            <div class="product-accessories">
+                <img src="image/DellUltraSharp.jpg" alt="monitor 2">
+                <h3>Dell Ultrasharp U2723QE 27&quot; 4K IPS LED Monitor</h3>
+                <p>$649.99 USD</p>
+                <button class="add-to-cart" data-product-name="Dell Ultrasharp U2723QE" data-product-price="649.99">Add to Cart</button>
+            </div>
+            <div class="product-accessories">
+                <img src="image/LG.webp" alt="monitor 3">
+                <h3>LG 27UP850N-W 27&quot; 4K UHD USB-C Monitor</h3>
+                <p>$549.99 USD</p>
+                <button class="add-to-cart" data-product-name="LG 27UP850N-W" data-product-price="549.99">Add to Cart</button>
+            </div>
+            <div class="product-accessories">
+                <img src="image/DellPro27.jfif" alt="monitor 4">
+                <h3>Dell Pro 27 Plus 4K USB-C Hub Monitor P2725QE</h3>
+                <p>$519.99 USD</p>
+                <button class="add-to-cart" data-product-name="Dell Pro 27 Plus P2725QE" data-product-price="519.99">Add to Cart</button>
+            </div>
+            <div class="product-accessories">
+                <img src="image/BenQ.webp" alt="monitor 5">
+                <h3>BenQ PD2705U 27&quot; UHD IPS LED Monitor</h3>
+                <p>$499.99 USD</p>
+                <button class="add-to-cart" data-product-name="BenQ PD2705U" data-product-price="499.99">Add to Cart</button>
+            </div>
+            <div class="product-accessories">
+                <img src="image/ViewSonic.webp" alt="monitor 6">
+                <h3>ViewSonic VA2762-4K 27&quot; IPS Monitor</h3>
+                <p>$299.99 USD</p>
+                <button class="add-to-cart" data-product-name="ViewSonic VA2762-4K" data-product-price="299.99">Add to Cart</button>
+            </div>
+            <div class="product-accessories">
+                <img src="image/Acer.webp" alt="monitor 7">
+                <h3>Acer Nitro VG271U M3bmiipx Monitor</h3>
+                <p>$279.99 USD</p>
+                <button class="add-to-cart" data-product-name="Acer Nitro VG271U" data-product-price="279.99">Add to Cart</button>
+            </div>
+            <div class="product-accessories">
+                <img src="image/Asus.jpg" alt="monitor 8">
+                <h3>ASUS VY249HF 24&quot; Full HD IPS LED Monitor</h3>
+                <p>$114.99 USD</p>
+                <button class="add-to-cart" data-product-name="ASUS VY249HF" data-product-price="114.99">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript for "Add to Cart" -->
+    <script>
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function () {
+                const productName = this.getAttribute('data-product-name');
+                const productPrice = parseFloat(this.getAttribute('data-product-price'));
+
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.push({ name: productName, price: productPrice });
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                alert(`${productName} added to cart!`);
+            });
+        });
+    </script>
+</body>
+</html>

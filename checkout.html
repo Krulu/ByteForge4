@@ -1,0 +1,88 @@
+z
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="shortcut icon" type="x-icon" href="image/logoo.png">
+    <link rel="stylesheet" href="checkout_style.css">
+    
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="image/logoo.png" alt="Logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="graphics-card.html">Graphics Cards</a></li>
+                <li><a href="monitors.html">Monitors</a></li>
+                <li><a href="peripirals.html">Accesories</a></li>
+            </ul>
+        </div>
+    </header>
+
+<main>
+    <h1>Checkout</h1>
+    <div class="checkout-summary">
+        <h2>Order Summary</h2>
+        <div class="order-items"></div>
+        <div class="total-price">
+            <h3>Total: $<span id="total-amount">0.00</span> USD</h3>
+        </div>
+        <a href="payment.html" class="checkout-button">Proceed to Payment</a>
+
+    </div>
+</main>
+
+<script>
+    function completeCheckout() {
+        localStorage.removeItem('cart');
+        window.location.href = 'payment.html';
+    }
+</script>
+
+
+<script>
+    function renderOrderItems() {
+        const orderItemsContainer = document.querySelector('.order-items');
+        const totalAmountElement = document.getElementById('total-amount');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let totalAmount = 0;
+
+        orderItemsContainer.innerHTML = ''; // Clear previous items
+
+        cart.forEach((item, index) => {
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('order-item');
+            itemElement.innerHTML = `
+                <p>${item.name}</p>
+                <p>$${item.price.toFixed(2)} USD</p>
+                <button class="remove-item" data-index="${index}">Remove</button>
+            `;
+            orderItemsContainer.appendChild(itemElement);
+            totalAmount += item.price;
+        });
+
+        totalAmountElement.textContent = totalAmount.toFixed(2);
+
+        // Add event listeners to remove buttons
+        document.querySelectorAll('.remove-item').forEach(button => {
+            button.addEventListener('click', function () {
+                const index = this.getAttribute('data-index');
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderOrderItems(); // Re-render after removal
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', renderOrderItems);
+</script>
+
+
+
+
+
+
+</body>
+</html>

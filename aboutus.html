@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" type="x-icon" href="image/byteforge.png">
+    <title>ABOUT US</title>
+</head>
+<body class="index-page">
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="image/logoo.png"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()" aria-hidden="true"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="BuildOwnPC.html">SERVICES</a></li>
+                    <li><a href="cart.html">PRODUCTS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()" aria-hidden="true"></i>
+        </nav>
+
+        <h1>About Us</h1>
+    </section>
+
+    <!-- -------about us content ------------- -->
+
+    <section class="about-us">
+
+        <div class="row">
+            <div class="about-col">
+                <h1>We offer you powerful builds and premium parts.</h1>
+                <p>Step into the future of computing with BYTE FORGE! Whether you're a 
+                    hardcore gamer, a content creator, video/photo editor or just looking to upgrade your setup, we've 
+                    got everything you need—from cutting-edge graphics cards and processors to sleek 
+                    prebuilt systems and RGB accessories. We specialize in high-performance builds t
+                    ailored to your needs and budget. Our products are handpicked for quality, power, 
+                    and durability, ensuring you get the most value out of every purchase.
+                    Discover your dream rig today and let us take your setup to the next level!</p>
+                    <a href="cart.html" class="hero-btn red-btn">SHOP NOW</a>
+            </div>
+            <div class="about-col">
+                <img src="image/setup.jpg">
+            </div>
+        </div>
+    </section>
+
+
+<!-- ---call--- -->
+
+<section class="cta">
+    <h1>Build your Computer<br>Anytime.</h1>
+    <a href="cart.html" class="hero-btn">BUILD NOW</a>
+    <div class="social-link">
+        <a href="" target="_blank"><i class="fa fa-facebook"></i></a></i>
+        <a href="" target="_blank"><i class="fa fa-instagram"></i></a></i>
+        <a href="" target="_blank"><i class="fa fa-twitter"></i></a></i>
+        <a href="" target="_blank"><i class="fa fa-youtube-play"></i></a></i>
+        <a href="" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a></i>
+        
+    </div>
+</section>
+
+<!-- javascrip -->
+    <script>
+
+        var navLinks = document.getElementById("navLinks");
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>

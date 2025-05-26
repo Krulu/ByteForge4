@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lowEnd.css">
+    <title>ByteForge</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="image/logoo.png" alt="logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">Products</a></li>
+                <li><a href="graphics-card.html">Graphics Card</a></li>
+                <li><a href="monitors.html">Monitor</a></li>
+                <li><a href="peripirals.html">Accesories</a></li>
+                <li><a href="BuildOwnPC.html">Build your Pc</a></li>
+            </ul>
+        </div>
+        </header>
+
+        <main>
+            <h1>LOW TIER BUILD</h1>
+            <div class="pc-grid">
+              <div class="low-end">
+                <img src="image/first.jpg" alt="BUILD 1">
+                <h3>Titan X Pro</h3>
+                <p>16,000 Php</p>
+                <button class="add-to-cart" data-product-name="Titan X Pro" data-product-price="16,000 Php">Add To Cart</button>
+            </div>
+            <div class="low-end">
+                <img src="image/pcbuilt2.avif" alt="BUILD 2">
+                <h3>Shadow Ripper X</h3>
+                <p>19,500 Php</p>
+                <button class="add-to-cart" data-product-name="Shadow Ripper X" data-product-price="18,000 Php">Add To Cart</button>
+            </div>
+            <div class="low-end">
+                <img src="image/third.jpg" alt="BUILD 3">
+                <h3>Strom Blaze 4070</h3>
+                <p>20,000 Php</p>
+                <button class="add-to-cart" data-product-name="Strom Blaze 4070" data-product-price="20,000 Php">Add To Cart</button>
+               </div>
+            
+            <div class="low-end">
+                <img src="image/pcbuilt6.png" alt="BUILD 3">
+                <h3>Strom Blaze 4070</h3>
+                <p>20,000 Php</p>
+                <button class="add-to-cart" data-product-name="Strom Blaze 4070" data-product-price="20,000 Php">Add To Cart</button>
+               </div>
+            
+            <div class="low-end">
+                <img src="image/pcbuilt3.webp" alt="BUILD 3">
+                <h3>Strom Blaze 4070</h3>
+                <p>20,000 Php</p>
+                <button class="add-to-cart" data-product-name="Strom Blaze 4070" data-product-price="20,000 Php">Add To Cart</button>
+               </div>
+               <div class="low-end">
+                <img src="image/pcbuilt5.jpg" alt="BUILD 3">
+                <h3>Strom Blaze 4070</h3>
+                <p>20,000 Php</p>
+                <button class="add-to-cart" data-product-name="Strom Blaze 4070" data-product-price="20,000 Php">Add To Cart</button>
+               </div>
+               <div class="low-end">
+                <img src="image/pcbuilt7.jpg" alt="BUILD 3">
+                <h3>Strom Blaze 4070</h3>
+                <p>20,000 Php</p>
+                <button class="add-to-cart" data-product-name="Strom Blaze 4070" data-product-price="20,000 Php">Add To Cart</button>
+               </div>
+               <div class="low-end">
+                <img src="image/pcbuilt8.avif" alt="BUILD 3">
+                <h3>Strom Blaze 4070</h3>
+                <p>20,000 Php</p>
+                <button class="add-to-cart" data-product-name="Strom Blaze 4070" data-product-price="20,000 Php">Add To Cart</button>
+               </div>
+               
+               
+               
+               </div>
+            
+            
+        </main>
+       <script>
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function () {
+            const productName = this.getAttribute('data-product-name');
+            const productPrice = parseFloat(this.getAttribute('data-product-price'));
+
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name: productName, price: productPrice });
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            alert(`${productName} added to cart!`);
+        });
+    });
+</script>
+    </body>
+</html>
